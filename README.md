@@ -1,5 +1,7 @@
 # YoutubeJukebox
 
+[![Continous Integration](https://gitlab.com/project-alice-assistant/skills/skill_YoutubeJukebox/badges/master/pipeline.svg)](https://gitlab.com/project-alice-assistant/skills/skill_YoutubeJukebox/pipelines/latest)
+
 ### Download
 
 ##### > WGET method
