@@ -13,12 +13,12 @@ wget http://skills.projectalice.ch/YoutubeJukebox \
 ### Description
 Allows to play music from youtube
 
-- Version: 1.0.10
+- Version: 1.1.0
 - Author: Jierka
 - Maintainers:
   - Psycho
   - maxbachmann
-- Alice minimum Version: 1.0.0-a4
+- Alice minimum Version: 1.0.0-a5
 - Conditions:
   - en
   - fr

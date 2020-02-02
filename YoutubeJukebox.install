@@ -1,10 +1,10 @@
 {
 	"name": "YoutubeJukebox",
-	"version": "1.0.10",
+	"version": "1.1.0",
 	"author": "Jierka",
 	"maintainers": ["Psycho", "maxbachmann"],
 	"desc": "Allows to play music from youtube",
-	"aliceMinVersion": "1.0.0-a4",
+	"aliceMinVersion": "1.0.0-a5",
 	"systemRequirements": [],
 	"pipRequirements": [
 		"youtube_dl",
