@@ -25,7 +25,7 @@ class YoutubeJukebox(AliceSkill):
 			inputt = session.payload['input']
 
 		utterances = self.getUtterancesByIntent(self._INTENT_SEARCH_MUSIC)
-		self.log.info(f'Raw input {inputt}')
+		self.logInfo(f'Raw input {inputt}')
 
 		inputtList = inputt.split()
 		for utterance in utterances:
@@ -33,7 +33,7 @@ class YoutubeJukebox(AliceSkill):
 
 		clearInput = ' '.join(inputtList)
 
-		self.log.info(f'Cleaned input {clearInput}')
+		self.logInfo(f'Cleaned input {clearInput}')
 
 		return clearInput
 
@@ -56,7 +56,7 @@ class YoutubeJukebox(AliceSkill):
 
 		videoKey = videolist[0]
 		videoUrl = f'http://www.youtube.com/watch?v={videoKey}'
-		self.log.info(f'Music video found {videoUrl}')
+		self.logInfo(f'Music video found {videoUrl}')
 
 		youtubeDlOptions = {
 			'outtmpl': '%(id)s.%(ext)s',
