@@ -1,5 +1,4 @@
 import json
-import subprocess
 
 import os
 import re
@@ -46,7 +45,7 @@ class YoutubeJukebox(AliceSkill):
 
 		self.endSession(sessionId=session.sessionId)
 
-		response = requests.get("http://www.youtube.com/results", {'search_query':wildcardQuery})
+		response = requests.get("https://www.youtube.com/results", {'search_query':wildcardQuery})
 		response.raise_for_status()
 		videolist = re.findall(r'href=\"/watch\?v=(.{11})', response.text)
 
@@ -55,7 +54,7 @@ class YoutubeJukebox(AliceSkill):
 			return
 
 		videoKey = videolist[0]
-		videoUrl = f'http://www.youtube.com/watch?v={videoKey}'
+		videoUrl = f'https://www.youtube.com/watch?v={videoKey}'
 		self.logInfo(f'Music video found {videoUrl}')
 
 		youtubeDlOptions = {
@@ -73,7 +72,7 @@ class YoutubeJukebox(AliceSkill):
 
 		if not os.path.isfile(outputFile):
 			with youtube_dl.YoutubeDL(youtubeDlOptions) as ydl:
-				os.chdir(resourceDir)
+				os.chdir(str(resourceDir))
 				ydl.download([videoUrl])
 
-		subprocess.run(['sudo', 'mpg123', outputFile])
+		self.Commons.runRootSystemCommand(['sudo', 'mpg123', outputFile])
