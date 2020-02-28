@@ -13,7 +13,7 @@ wget http://skills.projectalice.ch/YoutubeJukebox \
 ### Description
 Allows to play music from youtube
 
-- Version: 1.1.2
+- Version: 1.1.3
 - Author: Jierka
 - Maintainers:
   - Psycho
