@@ -2,7 +2,7 @@
 	"name": "YoutubeJukebox",
 	"version": "1.1.3",
 	"icon": "fab fa-battle-net",
-	"category": "undefined",
+	"category": "music",
 	"author": "Jierka",
 	"maintainers": ["Psycho", "maxbachmann"],
 	"desc": "Allows to play music from youtube",
