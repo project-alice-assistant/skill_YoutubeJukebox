@@ -17,7 +17,3 @@ Allows to play music from youtube
   - it
   - online
 - Requirements: youtube_dl, ffmpeg
-
-### TODO
-
-- Handle GlobalStop action
