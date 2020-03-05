@@ -1,0 +1,15 @@
+{
+	"whatToSearch": [
+		"Certo! cosa vuoi che cerchi ?",
+		"Certamente! cosa cerco ?",
+		"Va bene, cosa devo cercare?"
+	],
+	"noMatch": [
+		"Mi dispiace, non riesco a trovare niente, di <say-as interpret-as=\"interjection\">{}</say-as>. Chiedimene un'altra"
+	],
+	"noServer": [
+		"I can't reach the server, sorry",
+		"There seems to be a server problem"
+	]
+}
+
