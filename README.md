@@ -22,6 +22,7 @@ Allows to play music from youtube
 - Conditions:
   - en
   - fr
+  - it
   - online
 - Requirements: youtube_dl, ffmpeg
 

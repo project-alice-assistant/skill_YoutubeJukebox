@@ -1,0 +1,31 @@
+{
+	"skill": "YoutubeJukebox",
+	"icon": "music",
+	"description": "Riproduce musica da YouTube\n",
+	"slotTypes": [
+
+	],
+	"intents": [
+		{
+			"name": "SearchMusic",
+			"description": "",
+			"enabledByDefault": true,
+			"utterances": [
+				"avvia la musica di *",
+				"fammi ascoltare *",
+				"fammi sentire * di *",
+				"metti un pezzo di *",
+				"riproduci una canzone di *",
+				"riproduci la canzone  * di *",
+				"avvia canzone di *",
+				"avvia la canzone * di *",
+				"voglio ascoltare *",
+				"voglio ascoltare * di *"
+			],
+			"slots": [
+
+			]
+		}
+	]
+}
+
