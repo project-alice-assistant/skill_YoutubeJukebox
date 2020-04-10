@@ -74,7 +74,7 @@ class YoutubeJukebox(AliceSkill):
 		resourceDir = self.getResource(resourcePathFile='audio')
 		outputFile = Path(resourceDir, f'{videoKey}.mp3')
 
-		if not os.path.isfile(outputFile):
+		if not outputFile.exists():
 			with youtube_dl.YoutubeDL(youtubeDlOptions) as ydl:
 				os.chdir(str(resourceDir))
 				ydl.download([videoUrl])
