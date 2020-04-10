@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import os
 import re
@@ -7,6 +8,7 @@ import youtube_dl
 from requests import RequestException
 
 from core.base.model.AliceSkill import AliceSkill
+from core.base.model.Intent import Intent
 from core.dialog.model.DialogSession import DialogSession
 from core.util.Decorators import AnyExcept, IntentHandler, Online
 
@@ -17,6 +19,8 @@ class YoutubeJukebox(AliceSkill):
 	Description: Allows to play music from youtube
 	"""
 
+	_INTENT_SEARCH_MUSIC = Intent('SearchMusic')
+
 	def getWildcard(self, session):
 		if isinstance(session.payload, str):
 			inputt = json.loads(session.payload)['input']
@@ -24,7 +28,7 @@ class YoutubeJukebox(AliceSkill):
 			inputt = session.payload['input']
 
 		utterances = self.getUtterancesByIntent(self._INTENT_SEARCH_MUSIC)
-		self.logInfo(f'Raw input {inputt}')
+		self.logDebug(f'Raw input {inputt}')
 
 		inputtList = inputt.split()
 		for utterance in utterances:
@@ -32,12 +36,12 @@ class YoutubeJukebox(AliceSkill):
 
 		clearInput = ' '.join(inputtList)
 
-		self.logInfo(f'Cleaned input {clearInput}')
+		self.logDebug(f'Cleaned input {clearInput}')
 
 		return clearInput
 
 
-	@IntentHandler('SearchMusic')
+	@IntentHandler(_INTENT_SEARCH_MUSIC)
 	@AnyExcept(exceptions=RequestException, text='noServer', printStack=True)
 	@Online
 	def searchMusicIntent(self, session: DialogSession):
@@ -45,7 +49,7 @@ class YoutubeJukebox(AliceSkill):
 
 		self.endSession(sessionId=session.sessionId)
 
-		response = requests.get("https://www.youtube.com/results", {'search_query':wildcardQuery})
+		response = requests.get('https://www.youtube.com/results', {'search_query':wildcardQuery})
 		response.raise_for_status()
 		videolist = re.findall(r'href=\"/watch\?v=(.{11})', response.text)
 
@@ -68,7 +72,7 @@ class YoutubeJukebox(AliceSkill):
 		}
 
 		resourceDir = self.getResource(resourcePathFile='audio')
-		outputFile = os.path.join(resourceDir, f'{videoKey}.mp3')
+		outputFile = Path(resourceDir, f'{videoKey}.mp3')
 
 		if not os.path.isfile(outputFile):
 			with youtube_dl.YoutubeDL(youtubeDlOptions) as ydl:
