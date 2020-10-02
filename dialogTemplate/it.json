@@ -1,14 +1,11 @@
 {
 	"skill": "YoutubeJukebox",
-	"icon": "music",
-	"description": "Riproduce musica da YouTube\n",
 	"slotTypes": [
 
 	],
 	"intents": [
 		{
 			"name": "SearchMusic",
-			"description": "",
 			"enabledByDefault": true,
 			"utterances": [
 				"avvia la musica di *",
