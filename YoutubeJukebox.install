@@ -1,6 +1,6 @@
 {
     "name": "YoutubeJukebox",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "icon": "fab fa-youtube",
     "category": "music",
     "author": "Jierka",
@@ -9,7 +9,7 @@
         "maxbachmann"
     ],
     "desc": "Allows to play music from youtube",
-    "aliceMinVersion": "1.0.0-a5",
+    "aliceMinVersion": "1.0.0-b3",
     "systemRequirements": [],
     "pipRequirements": [
         "youtube_dl",
